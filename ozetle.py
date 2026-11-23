@@ -92,8 +92,12 @@ def main():
         if v != TEMEL:
             fark = ozet[ozet["varyant"] == v].set_index("olgu")
             genis[f"{v} fark"] = fark["fark_yp"].round(1)
-            genis[f"{v} p"] = fark["p"].map(lambda x: f"{x:.3f}")
-    metin = "# Ön deney özeti\n\nDoğruluk (%), FP16'ya göre fark (yüzde puan) ve McNemar p değeri.\n\n"
+            genis[f"{v} p"] = fark["p"].map(lambda x: "<0.001" if x < 0.001 else f"{x:.3f}")
+    # Bonferroni: olgu bazındaki test sayısı (GENEL satırları hariç)
+    testler = int(((ozet["varyant"] != TEMEL) & (ozet["olgu"] != "GENEL")).sum())
+    metin = ("# Ön deney özeti\n\nDoğruluk (%), FP16'ya göre fark (yüzde puan) ve McNemar p değeri.\n"
+             f"Çoklu karşılaştırma için Bonferroni eşiği: 0.05 / {testler}"
+             f" = {0.05 / testler:.4f}\n\n")
     metin += genis.to_markdown() + "\n"
     kaynak = klasor / "kaynak.csv"
     if kaynak.exists():

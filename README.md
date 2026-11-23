@@ -63,6 +63,19 @@ CUDA destekli bir NVIDIA GPU gerekir (bitsandbytes nicemlemesi GPU üzerinde ça
 | `results/ozet.md` | Rapora konabilecek okunur tablo |
 | `results/sekil_olgu_fark.png` | Olgu bazında FP16'ya göre doğruluk farkı |
 
+## Ön deney sonuçları (23.11.2026)
+
+Ortam: Kaggle, Tesla T4 (16 GB), CUDA 13.0, Python 3.13, PyTorch 2.11, Transformers 5.20.2,
+bitsandbytes 0.50.2. Model: Qwen2.5-1.5B-Instruct. Veri: 16 olgu × 300 çift = 4.800 minimal çift.
+
+| Varyant | Doğruluk (%) | Model belleği (GB) | Tepe GPU belleği (GB) | Token başına süre (ms) |
+|---|---|---|---|---|
+| FP16 | 78,9 | 2,88 | 4,51 | 42,7 |
+| INT8 | 78,5 | 1,66 | 3,29 | 169,4 |
+| NF4  | 76,7 | 1,05 | 2,76 | 60,0 |
+
+Olgu bazındaki sonuçlar `results/ozet.md` ve `results/sekil_olgu_fark.png` dosyalarındadır.
+
 ## Veri hakkında notlar
 
 - TurBLiMP: Başar vd., EMNLP 2025, <https://github.com/ezgibasar/turblimp> (CC BY 4.0).

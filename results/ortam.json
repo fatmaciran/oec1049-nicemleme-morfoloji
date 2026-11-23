@@ -1,0 +1,32 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "olgu_basina_cift": 300,
+  "tohum": 42,
+  "toplam_cift": 4800,
+  "ayiklanan_ayni_cumleli_cift": {
+    "anaphor_agreement": 10,
+    "argument_structure_ditransitive": 0,
+    "argument_structure_transitive": 0,
+    "binding": 0,
+    "determiners": 0,
+    "ellipsis": 0,
+    "irregular_forms": 0,
+    "island_effects": 0,
+    "nominalization": 0,
+    "npi_licensing": 0,
+    "passives": 0,
+    "quantifiers": 10,
+    "relative_clauses": 0,
+    "scrambling": 0,
+    "subject_verb_agreement": 0,
+    "suspended_affixation": 0
+  },
+  "sozcuk_basina_token": 2.5208018383019897,
+  "gpu": "Tesla T4",
+  "cuda": "13.0",
+  "python": "3.13.16",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.20.2",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0"
+}
